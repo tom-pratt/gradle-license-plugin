@@ -197,7 +197,9 @@ open class LicenseReportTask : DefaultTask() { // tasks can't be final
         this.gav = "${module.group}:${module.name}:${module.version}"
       }
 
-      projects.add(project)
+      if (node.getAt("groupId").text().trim() != "com.volvocars.artinf.sdk") {
+        projects.add(project)
+      }
     }
 
     // Sort POM information by name

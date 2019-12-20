@@ -69,10 +69,7 @@ publishing {
   publications {
     maven(MavenPublication) {
       from components.java // includes main 'artifact jar'
-      artifact docsJar
       artifact sourcesJar
-      artifact testsJar
-      artifact reportsZip
 
       groupId GROUP
       artifactId POM_ARTIFACT_ID
@@ -85,7 +82,7 @@ publishing {
     }
   }
 }
-publish.dependsOn jar, docsJar, sourcesJar, testsJar, reportsZip
+publish.dependsOn jar, sourcesJar
 publish.dependsOn 'generatePomFileForMavenPublication'
 
 // Snapshots published to JFrog Artifactory repository
